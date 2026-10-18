@@ -92,3 +92,8 @@ class InputBoundaries(unittest.TestCase):
     def test_tls_boolean_is_not_integer(self):
         m=module('runai-tls-oidc','tls_evidence')
         with self.assertRaises(ValueError):m.analyze({'application_tls_verified':1})
+    def test_snapshot_requires_valid_timezone_timestamp(self):
+        m=module('runai-context-discovery','snapshot')
+        for value in ('not-a-date','2026-10-18T12:00:00','2026-02-30T12:00:00Z'):
+            data=fixture();data['captured_at']=value
+            with self.assertRaises(ValueError):m.normalize(data)

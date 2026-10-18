@@ -43,4 +43,4 @@ Implementation ledger:
   schema engine would be larger and weaker. Standalone installation declares it.
 - Ruling: describe kubectl JSONPath as client-side output filtering; no unsupported
   server-side field authorization claim. Full-object retrieval needs authorization.
-- Validation: 52 tests passing; separate agent/live suites explicitly not run.
+- Validation: 53 tests passing; separate agent/live suites explicitly not run.

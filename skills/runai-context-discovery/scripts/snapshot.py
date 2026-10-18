@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Validate our local snapshot contract and retain raw version provenance. Offline."""
 import argparse
+from datetime import datetime
 import json
 import re
 from pathlib import Path
-from jsonschema import Draft202012Validator, FormatChecker
+from jsonschema import Draft202012Validator
 
 
 def version(raw):
@@ -18,9 +19,13 @@ def version(raw):
 
 def normalize(data):
     schema = json.loads((Path(__file__).resolve().parents[1] / 'assets/snapshot.schema.json').read_text())
-    errors = list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(data))
+    errors = list(Draft202012Validator(schema).iter_errors(data))
     if errors:
         raise ValueError('invalid local snapshot; check required fields, types, bounds and unknown keys')
+    timestamp = data['captured_at']
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})', timestamp):
+        raise ValueError('timestamp requires a date, time and timezone')
+    datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
     result = json.loads(json.dumps(data, allow_nan=False))
     for component in result['components']:
         parsed = version(component['raw_version'])

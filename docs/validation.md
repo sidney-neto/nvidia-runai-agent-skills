@@ -5,7 +5,7 @@
 - Python **3.12**, clean repository virtual environment.
 - `python3.12 -m venv --clear .venv`
 - `.venv/bin/python -m pip install -e .` — installed pinned lightweight toolchain.
-- `make check PYTHON=.venv/bin/python` — **52 tests passed**.
+- `make check PYTHON=.venv/bin/python` — **53 tests passed**.
 - `.venv/bin/python -m pip check` — no broken requirements.
 - Quota CLI with `examples/eight-gpu.snapshot.json --format text` — physical 8,
   finite project quota 12, department quota 8, oversubscription true, research
@@ -82,5 +82,7 @@ its installation is explicit and packaged.
   procedure evidence only. Exact distribution/patch/edition/artifact availability
   and runtime permissions remain external requirements.
 
-GitHub CI status is reported separately after publication; local results alone
-do not establish that a remote workflow has run.
+GitHub Actions completed the initial 52-test offline validation successfully:
+https://github.com/sidney-neto/nvidia-runai-agent-skills/actions/runs/39141441806
+A final timestamp regression raises the local suite to 53 tests; its remote CI
+status is verified separately after the follow-up push.
