@@ -14,6 +14,28 @@ from test_helpers import ROOT, module, fixture
 CATALOG='runai-context-discovery runai-cluster-health runai-mcp-integration runai-quota-capacity-planning runai-projects-departments runai-rbac-access runai-workload-policies runai-scheduling-diagnostics runai-workload-lifecycle runai-tls-oidc runai-gpu-sharing runai-upgrade-readiness kubernetes-gpu-operations nvidia-gpu-operator runai-storage runai-networking runai-observability runai-vllm-serving runai-nim-serving runai-distributed-workloads runai-backup-recovery runai-support-report'.split()
 
 class Packaging(unittest.TestCase):
+    def test_repository_documentation_links(self):
+        paths=list(ROOT.glob('*.md'))+list((ROOT/'docs').glob('*.md'))+list((ROOT/'evals').glob('*.md'))
+        for path in paths:
+            for target in re.findall(r'\]\(([^)]+)\)',path.read_text()):
+                if '://' in target or target.startswith('#'):continue
+                self.assertTrue((path.parent/target.split('#')[0]).exists(),f'{path}: {target}')
+
+    def test_gitignore_private_outputs_not_packaged_evidence(self):
+        ignored=['.env','.env.production','.local/incident.json','.venv/bin/python',
+                 '.coverage','htmlcov/index.html','.DS_Store','.claude/settings.local.json']
+        retained=['.env.example','examples/.env.example','examples/eight-gpu.snapshot.json',
+                  'docs/sources.json','skills/runai-upgrade-readiness/references/profiles.json',
+                  '.agents/skills/runai-context-discovery','.github/workflows/check.yml',
+                  'tests/fixtures/eight-gpu.json']
+        with tempfile.TemporaryDirectory() as tmp:
+            subprocess.run(['git','init','--quiet',tmp],check=True,capture_output=True,timeout=10)
+            shutil.copyfile(ROOT/'.gitignore',Path(tmp)/'.gitignore')
+            result=subprocess.run(['git','-c','core.excludesFile=/dev/null','check-ignore','--no-index','--stdin'],
+                                  cwd=tmp,input='\n'.join(ignored+retained)+'\n',capture_output=True,text=True,timeout=10)
+            self.assertEqual(result.returncode,0,result.stderr)
+            self.assertEqual(set(result.stdout.splitlines()),set(ignored))
+
     def test_frontmatter_names_and_local_links(self):
         paths=sorted((ROOT/'skills').glob('*/SKILL.md'))
         self.assertEqual({p.parent.name for p in paths},set(CATALOG))
@@ -55,6 +77,9 @@ class Packaging(unittest.TestCase):
                 self.assertEqual(result.returncode,0,result.stderr)
                 target=Path(tmp)/name
                 self.assertTrue((target/'SKILL.md').exists())
+                for source in (ROOT/'skills'/name).rglob('*'):
+                    if source.is_file() and '__pycache__' not in source.parts and source.suffix!='.pyc':
+                        self.assertEqual((target/source.relative_to(ROOT/'skills'/name)).read_bytes(),source.read_bytes())
                 for script in target.glob('scripts/*.py'):
                     result=subprocess.run([sys.executable,str(script),'--help'],cwd=tmp,capture_output=True,text=True,timeout=10)
                     self.assertEqual(result.returncode,0,result.stderr)

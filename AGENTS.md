@@ -1,7 +1,7 @@
 # Repository maintenance
 
 This is an independent operational skill library, not a cluster automation service.
-Read docs/architecture.md and docs/compatibility.md before changing applicability.
+Read CONTRIBUTING.md and docs/compatibility.md before changing applicability.
 Canonical skills live in skills/; .agents/skills contains discovery symlinks only.
 Every installed skill must work without imports or mandatory files outside itself.
 Prefer Python standard library helpers. Snapshot validation uses pinned jsonschema
