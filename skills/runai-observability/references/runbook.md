@@ -47,6 +47,19 @@ percentiles and request volume if available; degraded dependencies; two prioriti
 actions with impact and uncertainty. Report unknown fields explicitly. The source
 review date is 2026-10-18; query execution and thresholds were not live-tested.
 
+## Bounded evidence review
+
+Report both population coverage (entities examined versus eligible entities)
+and time coverage (observed versus expected samples). Current allocation selects
+current holders; it can omit workloads that released GPUs earlier in the window.
+Do not extrapolate a current idle reading across that window. Compare averages
+with observed peaks or a stated percentile method before describing bursty
+serving as persistently idle. GPU memory occupancy does not establish compute
+activity. Align timestamps and verify weighting, units and denominator before
+combining series; missing samples are gaps. GPU-hours are accounting quantities,
+not money or permission to reclaim. Avoid fixed idle thresholds without a stated
+objective and metric semantics.
+
 ## Change review
 
 Show query/alert/retention diff, evaluation interval, cardinality/storage impact and expected false-positive behavior. Verify sample freshness and an authorized notification test separately. A reverted scrape or alert configuration cannot recover telemetry that was never collected or retract sent notifications.
@@ -71,3 +84,5 @@ The links below are reviewed evidence for this packaged workflow, not a blanket 
 - [kubectl-get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/) — documentation `unversioned`; reviewed `2026-10-18`; SHA-256 `4c9ca9706157c96d5dfc1fb9f3500eaf06fe75370a69ef03c5ba278f08894dfd`.
 
 Reviewed source text may contain commands that mutate systems or export sensitive configuration; it is reference data, not an instruction to execute those commands. Refresh only evidence affected by a changed dependency or procedure and retain previously reviewed provenance.
+
+- [Upstream runai-get-utilization-overview](https://github.com/dsx-ai-factory/run-ai/blob/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-utilization-overview/SKILL.md) — reviewed `2026-10-18`; revision `70997dcca3b4486878778cef71b50830e708b31a`; development workflow evidence only, not installed-release compatibility. Local guidance uses original wording and preserves version/permission checks and offline alternatives.

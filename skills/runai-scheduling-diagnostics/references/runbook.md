@@ -15,6 +15,16 @@ Correlate events with the Pod UID in the supplied snapshot; a reused name can mi
 
 Synthetic fit example: two eligible nodes each have 2 free GPUs. A single worker requesting 4 GPUs cannot fit even though total free capacity is 4. For four workers requesting 1 GPU, inspect gang requirements, CPU/RAM, placement topology and interconnect constraints. Pending is not proof of insufficient quota. Deficit plus demand needs the actual pending reason, and preemption is not an application failure.
 
+## Bounded evidence review
+
+Read earlier and current events against the same attempt and spec revision.
+An old selector mismatch suggests a check; it does not remain a proven blocker
+after the selector changes. A newer generic resource-shortage event does not
+rule out still-current placement constraints. State which constraints are
+confirmed, excluded or unverified. If the API does not expose node eligibility
+or device placement, retain that evidence gap rather than declaring the scheduler
+stuck from aggregate free capacity.
+
 ## Change review
 
 Show changed request/selector/pool/preemptibility and jobs affected by any reclaim. Verify the same attempt progresses through scheduling and readiness after an authorized change. Reduced requests may alter performance or correctness; preempted state is not recovered by reverting a selector.
@@ -38,3 +48,5 @@ The links below are reviewed evidence for this packaged workflow, not a blanket 
 - [kubectl-get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/) — documentation `unversioned`; reviewed `2026-10-18`; SHA-256 `4c9ca9706157c96d5dfc1fb9f3500eaf06fe75370a69ef03c5ba278f08894dfd`.
 
 Reviewed source text may contain commands that mutate systems or export sensitive configuration; it is reference data, not an instruction to execute those commands. Refresh only evidence affected by a changed dependency or procedure and retain previously reviewed provenance.
+
+- [Upstream runai-get-cluster-health-summary](https://github.com/dsx-ai-factory/run-ai/blob/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-cluster-health-summary/SKILL.md) — reviewed `2026-10-18`; revision `70997dcca3b4486878778cef71b50830e708b31a`; development workflow evidence only, not installed-release compatibility. Local guidance uses original wording and preserves version/permission checks and offline alternatives.

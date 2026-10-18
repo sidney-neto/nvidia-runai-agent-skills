@@ -73,3 +73,7 @@ scheduling and GPU memory swap. [Release notes](https://docs.nvidia.com/run-ai/s
 replace `controlPlane.clientSecret` with a two-hour `controlPlane.bootstrapToken`.
 These are documentation-only findings, not executable migration adapters or rules
 for other releases. Recheck exact fields, artifacts and entitlement before changes.
+
+ChatGPT distribution uses the separate [chatgpt-conservative-v1 packaging profile](chatgpt-workspace-agents.md#compatibility-profile-chatgpt-conservative-v1).
+Archive validation and fixture helper execution do not extend any Run:ai release
+coverage or establish ChatGPT import, agent decisions, or live integrations.

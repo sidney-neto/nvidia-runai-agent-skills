@@ -64,6 +64,15 @@ The Kubernetes example is a fallback observation, not a test of MCP transport. T
 
 A tool can be advertised yet fail authentication; authenticated yet deny the selected project; or technically work without a matching support statement. Record each independently. Never include client secrets, bearer tokens, kubeconfig contents or credential-tool output in the report. Configure secrets through the operator's existing secret mechanism, without retrieving them for diagnosis.
 
+Before using a tool's optional filter, check its actual input schema and confirm
+that the returned scope matches the requested target. Identical per-pool metric
+responses may indicate an ignored filter, not equal utilization. A rejected
+argument is a schema mismatch; remove it only after verifying that the remaining
+request preserves scope. Do not turn a narrow request into a cluster-wide read
+as an automatic fallback. Keep exit/error status and partial-data indicators when
+interpreting structured results. Offline evidence remains available when the
+required interface cannot be established.
+
 ## Change review
 
 For a connection proposal, show a redacted client-config diff, transport, trusted server identity, read scope, restart/reload requirement and removal steps. Installation and permission expansion require their own authorized scope. Removing the client entry does not revoke a credential; revocation belongs to its owner.

@@ -48,6 +48,15 @@ Os links em `.agents/skills` apontam para as pastas canônicas em `skills/`.
 Cada skill também pode ser instalada separadamente com referências, schemas,
 scripts e avisos legais, sem depender de arquivos externos à sua pasta.
 
+## ChatGPT Workspace Agents
+
+Gere um ZIP independente de cada skill ou baixe uma release de pacotes publicada.
+Importe individualmente e associe ao Workspace Agent; instalar não concede acesso
+a Run:ai ou Kubernetes. O empacotamento é testado localmente; importação e execução
+no ChatGPT ainda não foram verificadas.
+
+[Construir, instalar e testar no ChatGPT →](docs/chatgpt-workspace-agents.pt-BR.md)
+
 ## Primeiro uso
 
 Selecione `$runai-context-discovery` no Codex CLI/IDE ou

@@ -62,7 +62,7 @@
       "revision": null,
       "status": 200,
       "claims": [
-        "GPU Operator supported range is 25.10\u201326.7.1, with 26.7.1 required for fractions."
+        "GPU Operator supported range is 25.10–26.7.1, with 26.7.1 required for fractions."
       ],
       "limits": "Do not transform a minimum feature prerequisite into an open-ended supported range.",
       "freshness_baseline": "unavailable; reviewed prose claims retained"
@@ -94,7 +94,7 @@
       "status": 200,
       "claims": [
         "Maximum four-version gap per upgrade; target-compatible distribution first; control plane before cluster.",
-        "Matrix: v2.26 Kubernetes 1.34\u20131.36 / OpenShift 4.18\u20134.22; v3.0 Kubernetes 1.35\u20131.37 / OpenShift 4.20\u20134.22."
+        "Matrix: v2.26 Kubernetes 1.34–1.36 / OpenShift 4.18–4.22; v3.0 Kubernetes 1.35–1.37 / OpenShift 4.20–4.22."
       ],
       "limits": "For Support-Entitled releases, supported/tested upgrades are limited to currently supported versions; no arbitrary older-version support is inferred.",
       "freshness_baseline": "unavailable; reviewed prose claims retained"
@@ -1207,6 +1207,171 @@
       "sha256": "0d5acd285d8b777c613288237c27da82989a59a804cb89f4750f72164a782058",
       "revision": null,
       "status": 200
+    },
+    {
+      "id": "upstream-review-runai-audit-assigned-quota",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-audit-assigned-quota/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-audit-assigned-quota/SKILL.md",
+      "document_version": "upstream development skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "70997dcca3b4486878778cef71b50830e708b31a",
+      "sha256": "3fbef93f1869c7bfffae3cce8dd7f75e01e8a2c40330645e62a53d5e58364e93",
+      "status": 200,
+      "claims": [
+        "Bounded evidence ordering reviewed; independently written local guidance."
+      ],
+      "limits": [
+        "Not evidence of installed release support, runtime schemas or permission."
+      ]
+    },
+    {
+      "id": "upstream-review-runai-diagnose-failed-workload",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-diagnose-failed-workload/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-diagnose-failed-workload/SKILL.md",
+      "document_version": "upstream development skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "70997dcca3b4486878778cef71b50830e708b31a",
+      "sha256": "9f603eff6115da9c77f489fd815cf7c73d2b27e6c5716c6f0ca733eac54fef40",
+      "status": 200,
+      "claims": [
+        "Bounded evidence ordering reviewed; independently written local guidance."
+      ],
+      "limits": [
+        "Not evidence of installed release support, runtime schemas or permission."
+      ]
+    },
+    {
+      "id": "upstream-review-runai-get-cluster-health-summary",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-cluster-health-summary/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-cluster-health-summary/SKILL.md",
+      "document_version": "upstream development skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "70997dcca3b4486878778cef71b50830e708b31a",
+      "sha256": "1bbbef403c2b60584055617d700c6616e85237329cfc184a4c22d5cfe0ebe239",
+      "status": 200,
+      "claims": [
+        "Bounded evidence ordering reviewed; independently written local guidance."
+      ],
+      "limits": [
+        "Not evidence of installed release support, runtime schemas or permission."
+      ]
+    },
+    {
+      "id": "upstream-review-runai-get-utilization-overview",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-utilization-overview/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-utilization-overview/SKILL.md",
+      "document_version": "upstream development skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "70997dcca3b4486878778cef71b50830e708b31a",
+      "sha256": "b7dde9cac330380c040557e45926f560c0d7907a009008315424e97eaa8178b4",
+      "status": 200,
+      "claims": [
+        "Bounded evidence ordering reviewed; independently written local guidance."
+      ],
+      "limits": [
+        "Not evidence of installed release support, runtime schemas or permission."
+      ]
+    },
+    {
+      "id": "upstream-review-runai-get-workload-health-summary",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-workload-health-summary/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-workload-health-summary/SKILL.md",
+      "document_version": "upstream development skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "70997dcca3b4486878778cef71b50830e708b31a",
+      "sha256": "2a118e7a7301da4ac6280a484b16ecbee158cbc338a69b45c8bc4296f09202eb",
+      "status": 200,
+      "claims": [
+        "Bounded evidence ordering reviewed; independently written local guidance."
+      ],
+      "limits": [
+        "Not evidence of installed release support, runtime schemas or permission."
+      ]
+    },
+    {
+      "id": "chatgpt-skills-upload",
+      "url": "https://help.openai.com/en/articles/20001066-skills-in-chatgpt",
+      "resolved_url": "https://help.openai.com/en/articles/20001066-skills-in-chatgpt",
+      "document_version": "ChatGPT Help Center, unversioned",
+      "reviewed_at": "2026-10-18",
+      "revision": null,
+      "sha256": null,
+      "status": 200,
+      "claims": [
+        "Skills upload, review and workspace controls; ZIP contract and limits unverified."
+      ],
+      "limits": [
+        "Documentation review only; no ChatGPT import or runtime certification."
+      ],
+      "freshness_baseline": "not captured; retain reviewed claims and recheck before changing profile"
+    },
+    {
+      "id": "chatgpt-workspace-agent-skills",
+      "url": "https://help.openai.com/en/articles/20001143-chatgpt-workspace-agents-for-enterprise-and-business",
+      "resolved_url": "https://help.openai.com/en/articles/20001143-chatgpt-workspace-agents-for-enterprise-and-business",
+      "document_version": "ChatGPT Help Center, unversioned",
+      "reviewed_at": "2026-10-18",
+      "revision": null,
+      "sha256": null,
+      "status": 200,
+      "claims": [
+        "Workspace Agent skills attachment, Preview and Update; no local import test."
+      ],
+      "limits": [
+        "Documentation review only; no ChatGPT import or runtime certification."
+      ],
+      "freshness_baseline": "not captured; retain reviewed claims and recheck before changing profile"
+    },
+    {
+      "id": "openai-api-skills-limits",
+      "url": "https://developers.openai.com/api/docs/guides/tools-skills",
+      "resolved_url": "https://developers.openai.com/api/docs/guides/tools-skills",
+      "document_version": "OpenAI API guide, unversioned",
+      "reviewed_at": "2026-10-18",
+      "revision": null,
+      "sha256": null,
+      "status": 200,
+      "claims": [
+        "API upload limits are separate from Workspace Agents."
+      ],
+      "limits": [
+        "Documentation review only; no ChatGPT import or runtime certification."
+      ],
+      "freshness_baseline": "not captured; retain reviewed claims and recheck before changing profile"
+    },
+    {
+      "id": "openai-skill-metadata",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "resolved_url": "https://learn.chatgpt.com/docs/build-skills",
+      "document_version": "ChatGPT Learn, unversioned",
+      "reviewed_at": "2026-10-18",
+      "revision": null,
+      "sha256": null,
+      "status": 200,
+      "claims": [
+        "Optional OpenAI interface metadata and canonical local skill discovery."
+      ],
+      "limits": [
+        "Documentation review only; no ChatGPT import or runtime certification."
+      ],
+      "freshness_baseline": "not captured; retain reviewed claims and recheck before changing profile"
+    },
+    {
+      "id": "openai-skills-deprecation",
+      "url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/README.md",
+      "resolved_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/README.md",
+      "document_version": "pinned upstream README",
+      "reviewed_at": "2026-10-18",
+      "revision": null,
+      "sha256": null,
+      "status": 200,
+      "claims": [
+        "Deprecated catalog points to openai/plugins; no plugin adapter introduced."
+      ],
+      "limits": [
+        "Documentation review only; no ChatGPT import or runtime certification."
+      ],
+      "freshness_baseline": "not captured; retain reviewed claims and recheck before changing profile"
     }
   ]
 }

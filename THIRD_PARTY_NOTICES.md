@@ -21,3 +21,8 @@ If contributors copy or adapt upstream expression or executable files, preserve
 the applicable license and attribution in the installed skill itself, identify
 modifications, and record provenance. Do not assume the repository root license
 applies to every upstream subtree. Dependency licenses remain their owners'.
+
+Additional conceptual review of quota, failure, health and utilization workflows
+used [revision 70997dcca3b4486878778cef71b50830e708b31a](https://github.com/dsx-ai-factory/run-ai/tree/70997dcca3b4486878778cef71b50830e708b31a/skills).
+Credit remains NVIDIA and Run:ai contributors; the code/prose license distinction
+is unchanged. The affected installed skills include their own NOTICE.md.

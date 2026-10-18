@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Added deterministic individual ChatGPT skill ZIPs, independent package/release
+  validation, checksums, bilingual Workspace Agents guidance and tag-only draft
+  release automation. ChatGPT imports and agent execution remain untested.
+- Refined bounded health samples, failure correlation and utilization evidence
+  after reviewing additional upstream Run:ai skills; retained offline fallbacks.
+
 - Consolidated source evidence and maintenance documentation; removed completed
   plans and reproducible report outputs without changing the 22 skills.
 - Documented client-specific installation, optional helpers and validation scope.
