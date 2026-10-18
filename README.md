@@ -2,107 +2,83 @@
 
 Version-aware agent skills for NVIDIA Run:ai Self-Hosted administration, GPU quotas, governance, and troubleshooting across Kubernetes, GPU Operator, NVIDIA NIM, and vLLM.
 
-An independent community project, not endorsed by NVIDIA. **22 portable skills**
-for Codex and other Agent Skills clients. Inspection and planning are the default;
-this repository does not install a server or operate a real cluster.
-
-Any reported release can be investigated. Procedures require matching source and
-capability evidence; an unknown release never silently inherits the newest
-profile. Offline snapshot validation, quota arithmetic, health/fragmentation/TLS
-analysis, serving-budget checks and sanitized reporting work without credentials,
-GPU hardware, MCP or model APIs.
+**22 portable skills**, with inspection and planning as the default. Independent
+community project; not endorsed by NVIDIA. No server or cluster deployment.
 
 [Português](README.pt-BR.md) · [Skill catalog](docs/catalog.md) ·
-[Compatibility](docs/compatibility.md) · [Installation](docs/installation.md) ·
-[Validation](docs/validation.md) · [Source ledger](docs/sources.json)
+[Installation and clients](docs/installation.md) · [Compatibility](docs/compatibility.md)
 
-## Start locally
+## Install a skill
 
-```sh
-git clone https://github.com/sidney-neto/nvidia-runai-agent-skills.git
-cd nvidia-runai-agent-skills
-python3.12 -m venv .venv
-. .venv/bin/activate
-python -m pip install -e .
-make check
-```
-
-Open Codex in this repository: `.agents/skills` links to the canonical `skills/`
-directories. For a selected skill in another project or your user discovery path:
+From your destination project, with Node/npm available:
 
 ```sh
-python scripts/install_skill.py runai-context-discovery --destination "$HOME/.agents/skills"
-python -m pip install -r "$HOME/.agents/skills/runai-context-discovery/requirements.txt"
+npx skills@1.7.2 add sidney-neto/nvidia-runai-agent-skills \
+  --skill runai-context-discovery --agent codex --copy
 ```
 
-Existing installed skills are never overwritten. Reload skill discovery if needed.
-Each installed folder retains its required scripts, references, schemas and license;
-there is no mandatory repository runtime or global configuration change.
+Review existing same-name skills before installing. Replace `codex` with
+`claude-code`, `openclaw`, `hermes-agent`, `gemini-cli`, `github-copilot`, `cursor`
+or `opencode` as appropriate. This installs instructions and packaged resources;
+Python development dependencies are not needed just to install a skill.
 
-## First useful work
+The [installation guide](docs/installation.md) covers user/project scope,
+installation without npm, native OpenClaw/Hermes commands, existing NemoClaw
+sandboxes, updates and removal. Grok Bot has a documented manual adaptation path;
+GitHub package import there is unverified. Client file placement tests do not
+establish agent execution or universal compatibility.
 
-“Use runai-context-discovery to analyze this exported snapshot:
-examples/eight-gpu.snapshot.json.”
+For repository-local Codex use, clone the repository and open it in Codex.
+Checked-in `.agents/skills` links point to the canonical `skills/` directories.
+Every skill can also be copied individually with its references, scripts, schemas
+and legal notices; no mandatory repository runtime is required.
 
-```sh
-python skills/runai-context-discovery/scripts/snapshot.py examples/eight-gpu.snapshot.json
-python skills/runai-quota-capacity-planning/scripts/quota.py examples/eight-gpu.snapshot.json --format text
-python skills/runai-cluster-health/scripts/health.py examples/eight-gpu.snapshot.json
-python skills/runai-scheduling-diagnostics/scripts/fit.py examples/eight-gpu.snapshot.json
-python skills/runai-tls-oidc/scripts/tls_evidence.py examples/tls-evidence.json
-python skills/runai-vllm-serving/scripts/budget.py examples/vllm-budget.json
-python skills/runai-upgrade-readiness/scripts/readiness.py examples/fraction-profile-input.json
-python skills/runai-support-report/scripts/report.py examples/incident.json
-```
+## First use
 
-The eight-GPU fixture has finite project quotas totaling 12, a separate department
-quota of 8, and fragmented device capacity. Its one virtual control plane is not
-HA. The [generic environment](examples/environment.yaml) parameterizes versions,
-HAProxy ingress, persistent model storage and optional fractional inference;
-it is our example contract, not a deployment manifest or vendor-support claim.
+Select `$runai-context-discovery` in Codex CLI/IDE, or
+`/runai-context-discovery` in Claude Code, and ask:
 
-Useful prompts:
+> Analyze this skill's packaged assets/example.snapshot.json offline. Preserve
+> missing versions and identify evidence gaps. Do not access a cluster.
 
-- “Audite as quotas por projeto e departamento sem alterar o cluster.”
-- “Explique por que este workload continua Pending.”
-- “Detecte a versão deste ambiente e use a documentação correspondente.”
-- “Prepare um plano da versão instalada para a versão-alvo informada, preservando workloads e volumes.”
-- “Analise este snapshot de uma versão ainda não cadastrada e indique as limitações.”
-- “Diagnostique o erro x509 no OIDC após a troca do certificado.”
-- “Revise esta configuração do vLLM para contexto de 32K.”
+Ask for other focused workflows by name:
 
-## Coverage and limitations
+- **Quotas:** “Use runai-quota-capacity-planning to audit project and department quotas without changes.”
+- **Pending:** “Use runai-scheduling-diagnostics to explain why this workload remains Pending.”
+- **TLS/OIDC:** “Use runai-tls-oidc to diagnose this x509 error after certificate replacement.”
+- **Upgrade:** “Use runai-upgrade-readiness to plan the installed-to-target transition, preserving workloads and volumes.”
+- **vLLM:** “Use runai-vllm-serving to review this 32K context and memory budget.”
 
-The initial machine-readable profiles cover the **2.26 baseline and 3.0 baseline
-fraction-limit difference**, plus the documented **2.26 → 3.0 component-staged
-upgrade plan**. They do not certify every patch or a historical upgrade graph.
-Related-stack references carry their own version and date. See the
-[actual evidence matrix](docs/compatibility.md), including unsupported operations,
-local backport declarations and unknown-version behavior.
+Supply sanitized evidence files and exact targets. See the guide for
+[English/Portuguese prompts and optional Python helpers](docs/installation.md#offline-helpers-and-first-use).
+Snapshot validation needs the skill's pinned jsonschema dependency; other helpers
+use the standard library. The [synthetic eight-GPU snapshot](examples/eight-gpu.snapshot.json)
+and [example report](examples/executive-report.md) need no live credentials or GPU.
 
-Official MCP is preferred when its actual interface and permission scope are
-established; verified Kubernetes/CLI/API or offline evidence can be alternatives.
-No MCP connection, credential, deployment or write access is enabled by installing
-these skills. The optional collector retrieves named objects through kubectl and
-retains only scalar fields; JSONPath filtering happens client-side. Runtime
-integration requires explicit target authorization. Report redaction is heuristic
-and needs review before sharing. No live integration or agent behavior suite is
-claimed as passed; those are separate from deterministic tests.
+## Scope and evidence
 
-Source refresh is opt-in and networked:
+Any reported release can be investigated. Unknown versions retain useful offline
+analysis; they never inherit the newest profile. Initial bounded profiles cover
+Self-Hosted 2.26/3.0 fraction-limit differences and a documented component-staged
+2.26 → 3.0 plan. These examples are not a global release allowlist. Related-stack
+versions and documentation/fixture/agent/live evidence are separate in the
+[compatibility matrix](docs/compatibility.md).
 
-```sh
-mkdir -p .local
-python scripts/check_sources.py docs/sources.json > .local/source-review.json
-```
+Official MCP is optional. Live operations require verified interfaces, explicit
+targets and authorized scope. No credentials, writes or connections are enabled
+by installation. Keep private snapshots/reports in ignored `.local/`; report
+redaction is heuristic and requires review before sharing.
 
-Prefer an ignored `.local/` directory for private reports. The refresh command
-reports changes/redirects/unavailable/aging sources, preserving reviewed evidence
-and all compatibility rules. It does not certify new support. GitHub also offers
-a manual freshness-report workflow; normal `make check` is offline after setup.
+To add coverage, review the exact release's sources, add a bounded profile/reference
+and positive/negative fixtures, then run `make check`. Do not rename the skill catalog.
 
-To add another release, find its exact documentation and interface evidence, add
-a bounded profile/reference and positive/negative fixtures, then run `make check`.
-Do not rename the goal-oriented skills or widen ranges from one successful test.
-See [contributing](CONTRIBUTING.md), [architecture](docs/architecture.md),
-[upstream reuse](docs/upstream-provenance.md) and [security](SECURITY.md).
+## Contribute
+
+[Development setup and validation](CONTRIBUTING.md) describe the optional Python
+toolchain and `make check`. Tests are synthetic and offline after dependency setup;
+agent behavior and live integration have not been tested. Source refresh is a
+separate opt-in network operation.
+
+[Security](SECURITY.md) · [Source ledger](docs/sources.json) ·
+[Upstream provenance](docs/upstream-provenance.md) · [License](LICENSE) ·
+[Attribution](THIRD_PARTY_NOTICES.md)

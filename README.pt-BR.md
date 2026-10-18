@@ -1,76 +1,86 @@
 # nvidia-runai-agent-skills
 
-Biblioteca comunitária independente com **22 skills** para administração,
-governança, quotas de GPU, diagnóstico e planejamento de upgrades do NVIDIA
-Run:ai Self-Hosted. Codex é o cliente principal; o formato Agent Skills permite
-reutilização por outros clientes compatíveis. Sem endosso da NVIDIA.
+**22 skills portáveis** para administração de NVIDIA Run:ai Self-Hosted, quotas de
+GPU, governança e diagnóstico com Kubernetes, GPU Operator, NVIDIA NIM e vLLM.
+Inspeção e planejamento são o padrão. Projeto comunitário independente, sem
+endosso da NVIDIA; não instala servidor nem opera um cluster automaticamente.
 
-A biblioteca investiga qualquer versão informada, mas executa procedimentos
-específicos somente com evidência correspondente. Uma versão desconhecida não
-herda automaticamente o perfil mais recente. Código e documentação canônica
-estão em inglês; cada skill também inclui um exemplo de uso em português.
+[English](README.md) · [Catálogo](docs/catalog.md) ·
+[Instalação e clientes](docs/installation.md) · [Compatibilidade](docs/compatibility.md)
 
-## Instalação
+## Instalar uma skill
 
-```sh
-git clone https://github.com/sidney-neto/nvidia-runai-agent-skills.git
-cd nvidia-runai-agent-skills
-python3.12 -m venv .venv
-. .venv/bin/activate
-python -m pip install -e .
-make check
-```
-
-Abra o Codex na raiz: `.agents/skills` aponta para os diretórios canônicos em
-`skills/`. Para instalar uma única skill completa, sem sobrescrever outra:
+No projeto em que pretende usá-la, com Node/npm disponível:
 
 ```sh
-python scripts/install_skill.py runai-context-discovery --destination "$HOME/.agents/skills"
-python -m pip install -r "$HOME/.agents/skills/runai-context-discovery/requirements.txt"
+npx skills@1.7.2 add sidney-neto/nvidia-runai-agent-skills \
+  --skill runai-context-discovery --agent codex --copy
 ```
 
-Recarregue a descoberta de skills se necessário. Nenhuma configuração global do
-cliente é alterada. Python 3.11+ é necessário; os testes foram preparados para 3.12.
+Confira skills existentes com o mesmo nome antes de instalar. Substitua `codex`
+por `claude-code`, `openclaw`, `hermes-agent`, `gemini-cli`, `github-copilot`,
+`cursor` ou `opencode`, conforme o cliente. A instalação das instruções não exige
+o ambiente Python de desenvolvimento.
 
-## Primeiro uso, sem cluster
+O [guia de instalação](docs/installation.md) explica escopo por projeto/usuário,
+instalação sem npm, comandos nativos de OpenClaw/Hermes, sandboxes NemoClaw já
+existentes, atualização e remoção. Para Grok Bot, há uma adaptação manual com
+limitações explícitas; a importação deste pacote GitHub não foi verificada.
+Copiar arquivos com sucesso não comprova execução pelo agente.
 
-“Use runai-context-discovery para analisar examples/eight-gpu.snapshot.json.”
+Para usar no próprio repositório com Codex, clone-o e abra sua raiz no cliente.
+Os links em `.agents/skills` apontam para as pastas canônicas em `skills/`.
+Cada skill também pode ser instalada separadamente com referências, schemas,
+scripts e avisos legais, sem depender de arquivos externos à sua pasta.
 
-```sh
-python skills/runai-quota-capacity-planning/scripts/quota.py examples/eight-gpu.snapshot.json --format text
-python skills/runai-scheduling-diagnostics/scripts/fit.py examples/eight-gpu.snapshot.json
-python skills/runai-vllm-serving/scripts/budget.py examples/vllm-budget.json
-```
+## Primeiro uso
 
-- “Audite as quotas por projeto e departamento sem alterar o cluster.”
-- “Explique por que este workload continua Pending.”
-- “Detecte a versão deste ambiente e use a documentação correspondente.”
-- “Prepare um plano da versão instalada para a versão-alvo informada, preservando workloads e volumes.”
-- “Analise este snapshot de uma versão ainda não cadastrada e indique as limitações.”
-- “Diagnostique o erro x509 no OIDC após a troca do certificado.”
-- “Revise esta configuração do vLLM para contexto de 32K.”
+Selecione `$runai-context-discovery` no Codex CLI/IDE ou
+`/runai-context-discovery` no Claude Code e peça:
 
-O exemplo sintético tem oito GPUs em dois workers físicos, um control plane
-virtual, ingress HAProxy e armazenamento persistente de modelos. Não estabelece
-requisito de hardware, alta disponibilidade ou suporte do fornecedor. Versões e
-recursos opcionais devem ser preenchidos com evidência do ambiente real.
+> Analise offline o arquivo assets/example.snapshot.json incluído nesta skill.
+> Preserve versões desconhecidas e indique as evidências ausentes. Não acesse o cluster.
 
-## Cobertura e limites
+Outros exemplos práticos, fornecendo arquivos sanitizados e alvos explícitos:
 
-Os perfis iniciais verificam a diferença no limite de frações de GPU entre as
-baselines Self-Hosted 2.26 e 3.0, além do plano 2.26 → 3.0 em etapas por componente.
-Não certificam todos os patches, versões futuras ou caminhos históricos. Consulte
-[a matriz](docs/compatibility.md), [o catálogo](docs/catalog.md),
-[as fontes](docs/sources.json) e [os resultados de validação](docs/validation.md).
+- **Quotas:** “Use runai-quota-capacity-planning. Audite as quotas por projeto e departamento sem alterar o cluster.”
+- **Agendamento:** “Use runai-scheduling-diagnostics. Explique por que este workload continua Pending.”
+- **TLS/OIDC:** “Use runai-tls-oidc. Diagnostique o erro x509 no OIDC após a troca do certificado.”
+- **Upgrade:** “Use runai-upgrade-readiness. Prepare um plano da versão instalada para a versão-alvo informada, preservando workloads e volumes.”
+- **vLLM:** “Use runai-vllm-serving. Revise esta configuração do vLLM para contexto de 32K.”
+- **Versão desconhecida:** “Analise este snapshot de uma versão ainda não cadastrada e indique as limitações.”
 
-Os helpers offline não usam cluster, credenciais, MCP ou APIs de modelos. O MCP
-oficial é opcional. O coletor ao vivo exige alvos e autorização explícitos;
-kubectl busca os objetos completos internamente e filtra a saída no cliente.
-Instalar uma skill não concede permissão nem habilita escrita. Relatórios precisam
-de revisão humana após a redação de dados sensíveis. Não foram executados testes
-reais de cluster nem a suíte de comportamento do agente.
+Os [helpers opcionais](docs/installation.md#offline-helpers-and-first-use) usam
+Python; o validador de snapshots também exige a dependência jsonschema empacotada.
+Instale dependências antes de trabalhar offline. O [snapshot sintético de oito GPUs](examples/eight-gpu.snapshot.json)
+e o [relatório de exemplo](examples/executive-report.md) não exigem credenciais,
+GPU ou MCP. O exemplo tem um único control plane, sem presumir alta disponibilidade.
 
-Para uma nova versão: localize documentação e interfaces exatas, registre a
-proveniência, adicione um perfil limitado com fixtures positivas e negativas e
-execute `make check`. Preserve os nomes por objetivo. Veja
-[CONTRIBUTING.md](CONTRIBUTING.md) e [as instruções de instalação](docs/installation.md).
+## Escopo e evidências
+
+Qualquer versão informada pode ser investigada. Versões desconhecidas continuam
+permitindo análise offline e nunca herdam automaticamente o perfil mais recente.
+Os perfis iniciais cobrem diferenças de frações entre Self-Hosted 2.26/3.0 e um
+plano documentado 2.26 → 3.0 em etapas por componente; não certificam todos os
+patches nem limitam a arquitetura a essas versões. Consulte a
+[matriz de evidências](docs/compatibility.md).
+
+MCP é opcional. Operações reais exigem interfaces verificadas, alvos explícitos e
+autorização correspondente. A instalação não habilita conexões, credenciais ou
+escritas. Guarde snapshots e relatórios privados em `.local/`, ignorado pelo Git;
+a sanitização automática é heurística e exige revisão antes de compartilhar.
+
+Para adicionar cobertura, revise as fontes da versão exata, acrescente um
+perfil/referência delimitado e fixtures positivas/negativas e execute `make check`.
+Preserve os nomes orientados ao objetivo das skills.
+
+## Contribuir
+
+O [guia de contribuição](CONTRIBUTING.md) contém o ambiente opcional de
+desenvolvimento e a validação com `make check`. Os testes são sintéticos e offline
+após instalar dependências. Avaliações de comportamento dos agentes e integrações
+reais não foram executadas. A atualização das fontes é separada e usa rede.
+
+[Segurança](SECURITY.md) · [Fontes](docs/sources.json) ·
+[Procedência](docs/upstream-provenance.md) · [Licença](LICENSE) ·
+[Atribuição](THIRD_PARTY_NOTICES.md)

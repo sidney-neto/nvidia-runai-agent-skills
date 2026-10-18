@@ -1,10 +1,28 @@
+# Python and generated validation artifacts
 .venv/
+venv/
 __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
-.local/
-.superpowers/
-.worktrees/
+.coverage
+.coverage.*
+htmlcov/
 build/
 dist/
+
+# Private snapshots, credentials, reports and local agent state
+.local/
+.env
+.env.*
+!.env.example
+.superpowers/
+.worktrees/
+.claude/settings.local.json
+
+# Local editor / OS artifacts
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo

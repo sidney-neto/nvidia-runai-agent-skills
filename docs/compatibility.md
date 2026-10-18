@@ -66,3 +66,10 @@ volatile sources. Offline output must cite evidence date and unresolved refresh
 requirements. A changed hash or redirect reports a review need; it never changes
 profiles automatically. See [sources.json](sources.json) and each packaged source
 table for exact URLs and documentation identities.
+
+Additional v3.0 release review: [deprecations](https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/getting-started/whats-new/deprecation-notifications)
+remove project/department `resources[].priority` in favor of `rank`, node-level
+scheduling and GPU memory swap. [Release notes](https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/getting-started/whats-new/whats-new-3-0)
+replace `controlPlane.clientSecret` with a two-hour `controlPlane.bootstrapToken`.
+These are documentation-only findings, not executable migration adapters or rules
+for other releases. Recheck exact fields, artifacts and entitlement before changes.
