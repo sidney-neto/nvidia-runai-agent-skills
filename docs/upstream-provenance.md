@@ -24,6 +24,16 @@ reference's final `nodePoolName` advice conflicts with its main skill: pending
 pods are unassigned. Establish pool eligibility from workload evidence instead of
 pending counts. Its memory-swap discussion is legacy-only; v3.0 removes swap.
 
+Additional review at revision `70997dcca3b4486878778cef71b50830e708b31a` (2026-10-18) covered
+quota and failed-workload updates plus cluster-health, workload-health and
+utilization skills. Their runtime tool arguments and MCP-only assumptions are
+not imported as release coverage. Packaged runbooks retain exact source links.
+New local guidance addresses bounded samples, time/attempt-aware correlation and
+metric coverage; unknowns remain useful offline. In particular, aggregate free
+GPUs do not prove a scheduler fault, and older events must match the current spec.
+No upstream files or verdict thresholds were copied. Original reviewed evidence
+above is retained for its historical scope.
+
 ## Source interpretation
 
 Run:ai's unversioned selector currently identifies v3.0; the v2.26 selector

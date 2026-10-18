@@ -19,3 +19,10 @@ clusters, MCP, model APIs or credential stores.
 
 Source-freshness networking is an explicit separate command against allowlisted
 public HTTPS hosts, with checked redirects. It never modifies reviewed rules.
+
+ChatGPT exports use a bounded text-only profile and reject symlinks, traversal,
+case collisions, credentials by known indicators and unexpected resource types.
+The validator does not execute bundled code or extract untrusted ZIPs. Secret
+screening and static path/import analysis are incomplete by design: review the
+source and package before sharing. Checksums establish integrity, not trust or
+agent behavior. Workspace upload scanning and runtime policy remain independent.

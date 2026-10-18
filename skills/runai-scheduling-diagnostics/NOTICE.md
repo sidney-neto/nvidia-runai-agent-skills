@@ -11,3 +11,8 @@ upstream prose is CC-BY-4.0, as specified in that tree's skills/LICENSE. No upst
 files are vendored here. Local guidance adds bounded version selection, offline
 evidence paths, distinct names and conflict handling. It does not replace upstream
 licenses or imply endorsement.
+
+Additional conceptual review: NVIDIA/Run:ai `runai-get-cluster-health-summary`, revision
+https://github.com/dsx-ai-factory/run-ai/blob/70997dcca3b4486878778cef71b50830e708b31a/skills/runai-get-cluster-health-summary/SKILL.md
+Reviewed 2026-10-18. Upstream code is Apache-2.0 and prose CC-BY-4.0;
+local evidence guidance is independently written and does not imply endorsement.

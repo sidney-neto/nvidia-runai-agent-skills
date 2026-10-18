@@ -49,6 +49,15 @@ Checked-in `.agents/skills` links point to the canonical `skills/` directories.
 Every skill can also be copied individually with its references, scripts, schemas
 and legal notices; no mandatory repository runtime is required.
 
+## ChatGPT Workspace Agents
+
+Build an independent ZIP for any skill, or download a published package release.
+Upload skills individually and attach them to a Workspace Agent; installation
+grants no Run:ai or Kubernetes access. Local packaging is tested; ChatGPT import
+and agent execution remain unverified.
+
+[Build, install and test in ChatGPT →](docs/chatgpt-workspace-agents.md)
+
 ## First use
 
 Select `$runai-context-discovery` in Codex CLI/IDE, or

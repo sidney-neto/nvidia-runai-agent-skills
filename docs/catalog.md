@@ -27,6 +27,8 @@ This independent library provides 22 portable operational skills. Install a sing
 | [runai-backup-recovery](../skills/runai-backup-recovery/SKILL.md) | Build a recovery inventory and evidence-based restore plan. |
 | [runai-support-report](../skills/runai-support-report/SKILL.md) | Create a shareable incident report with controlled evidence scope. |
 
+Each canonical directory also exports as an individual [ChatGPT Workspace Agents package](chatgpt-workspace-agents.md), with generated OpenAI UI metadata and preserved resources. The exporter discovers skills dynamically; this catalog does not act as its allowlist.
+
 ## Selection and boundaries
 
 Start with context discovery when target/version evidence is incomplete. Use cluster health for system impact, scheduling diagnostics for placement, and workload lifecycle for a particular attempt. Quota planning analyzes commitments and eligible demand; observability evaluates measured usage. Organization, RBAC and policy reviews are separate because namespace presence, API permission and admission enforcement are different claims.

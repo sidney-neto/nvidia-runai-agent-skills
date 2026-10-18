@@ -15,15 +15,21 @@ CATALOG='runai-context-discovery runai-cluster-health runai-mcp-integration runa
 
 class Packaging(unittest.TestCase):
     def test_repository_documentation_links(self):
-        paths=list(ROOT.glob('*.md'))+list((ROOT/'docs').glob('*.md'))+list((ROOT/'evals').glob('*.md'))
+        paths=list(ROOT.glob('*.md'))+list((ROOT/'docs').glob('*.md'))+list((ROOT/'evals').glob('*.md'))+list((ROOT/'examples').glob('*.md'))
         for path in paths:
             for target in re.findall(r'\]\(([^)]+)\)',path.read_text()):
                 if '://' in target or target.startswith('#'):continue
-                self.assertTrue((path.parent/target.split('#')[0]).exists(),f'{path}: {target}')
+                dest=path.parent/target.split('#')[0]
+                self.assertTrue(dest.exists(),f'{path}: {target}')
+                if '#' in target and dest.suffix=='.md':
+                    anchors={re.sub(r'[^\w -]','',heading).strip().lower().replace(' ','-')
+                             for heading in re.findall(r'^#{1,6} (.+)$',dest.read_text(),re.M)}
+                    self.assertIn(target.split('#',1)[1],anchors,f'{path}: {target}')
 
     def test_gitignore_private_outputs_not_packaged_evidence(self):
         ignored=['.env','.env.production','.local/incident.json','.venv/bin/python',
-                 '.coverage','htmlcov/index.html','.DS_Store','.claude/settings.local.json']
+                 '.coverage','htmlcov/index.html','.DS_Store','.claude/settings.local.json',
+                 'dist/chatgpt/runai-context-discovery/skill.zip','dist/chatgpt/release/manifest.json']
         retained=['.env.example','examples/.env.example','examples/eight-gpu.snapshot.json',
                   'docs/sources.json','skills/runai-upgrade-readiness/references/profiles.json',
                   '.agents/skills/runai-context-discovery','.github/workflows/check.yml',
@@ -38,7 +44,7 @@ class Packaging(unittest.TestCase):
 
     def test_frontmatter_names_and_local_links(self):
         paths=sorted((ROOT/'skills').glob('*/SKILL.md'))
-        self.assertEqual({p.parent.name for p in paths},set(CATALOG))
+        self.assertGreaterEqual({p.parent.name for p in paths},set(CATALOG))
         for path in paths:
             with self.subTest(skill=path.parent.name):
                 text=path.read_text();self.assertTrue(text.startswith('---\n'))
@@ -72,7 +78,7 @@ class Packaging(unittest.TestCase):
         self.assertEqual(environment['ingress']['hostname'],'inference.example.com')
     def test_install_individual_skills_outside_repository(self):
         with tempfile.TemporaryDirectory() as tmp:
-            for name in CATALOG:
+            for name in sorted(p.parent.name for p in (ROOT/'skills').glob('*/SKILL.md')):
                 result=subprocess.run([sys.executable,str(ROOT/'scripts/install_skill.py'),name,'--destination',tmp],capture_output=True,text=True,timeout=10)
                 self.assertEqual(result.returncode,0,result.stderr)
                 target=Path(tmp)/name
@@ -88,12 +94,23 @@ class Packaging(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stderr)
             result=subprocess.run([sys.executable,str(ROOT/'scripts/install_skill.py'),CATALOG[0],'--destination',tmp],capture_output=True,text=True,timeout=10)
             self.assertEqual(result.returncode,2)
-    def test_ci_has_no_write_permission_or_unpinned_actions(self):
+    def test_ci_only_release_job_has_write_permission_and_actions_are_pinned(self):
         for path in (ROOT/'.github/workflows').glob('*.yml'):
             workflow=yaml.load(path.read_text(),Loader=yaml.BaseLoader)
             self.assertEqual(workflow['permissions'],{'contents':'read'})
             self.assertNotIn('pull_request_target',workflow['on'])
-            for job in workflow['jobs'].values():
+            for name,job in workflow['jobs'].items():
+                if job.get('permissions',{}).get('contents')=='write':
+                    self.assertEqual(job['permissions'],{'contents':'write'})
+                    self.assertEqual(path.name,'chatgpt-skills.yml')
+                    self.assertEqual(name,'draft-release')
+                    self.assertEqual(job['needs'],'build')
+                    self.assertEqual(job['if'],"github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')")
+                    body='\n'.join(s.get('run','') for s in job['steps'])
+                    self.assertIn('--draft',body)
+                    self.assertIn('--verify-tag',body)
+                    self.assertIn('isDraft',body)
+                else:self.assertEqual(job.get('permissions',{'contents':'read'}),{'contents':'read'})
                 for step in job['steps']:
                     if 'uses' in step:self.assertRegex(step['uses'],r'@[a-f0-9]{40}$')
     def test_profiles_have_separate_evidence_and_sources(self):

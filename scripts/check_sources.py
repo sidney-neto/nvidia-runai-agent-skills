@@ -9,7 +9,7 @@ from pathlib import Path
 import urllib.request
 from urllib.parse import urlparse
 
-HOSTS={'prometheus.io','docs.nvidia.com','run-ai-docs.nvidia.com','github.com','raw.githubusercontent.com','agentskills.io','developers.openai.com','learn.chatgpt.com','kubernetes.io','docs.vllm.ai','docs.openssl.org','v1-34.docs.kubernetes.io','v1-35.docs.kubernetes.io'}
+HOSTS={'help.openai.com','prometheus.io','docs.nvidia.com','run-ai-docs.nvidia.com','github.com','raw.githubusercontent.com','agentskills.io','developers.openai.com','learn.chatgpt.com','kubernetes.io','docs.vllm.ai','docs.openssl.org','v1-34.docs.kubernetes.io','v1-35.docs.kubernetes.io'}
 
 def validate_url(url):
     parts=urlparse(url)

@@ -17,5 +17,6 @@ class Sources(unittest.TestCase):
         self.assertEqual(record,before)
     def test_unsafe_source_rejected(self):
         m=load()
+        m.validate_url('https://help.openai.com/en/articles/20001066-skills-in-chatgpt')
         for url in ('http://example.com','https://user:password@docs.nvidia.com/a','https://127.0.0.1/a','file:///etc/passwd'):
             with self.assertRaises(ValueError):m.validate_url(url)

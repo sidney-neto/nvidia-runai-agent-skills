@@ -73,3 +73,14 @@ commit's run. [Client installation evidence](docs/installation.md#validation-sta
 is separate from the offline helper suite. Do not report unexecuted agent/live
 checks as passed. Keep pinned CI actions, read-only permissions, timeouts and
 synthetic examples when changing validation.
+
+## ChatGPT package adapter
+
+`make check` includes ZIP security, deterministic builds, manifest/checksums,
+canonical preservation, dynamic discovery and independent extraction tests.
+`make check-chatgpt` runs the focused suite; `make package-chatgpt` and
+`make validate-chatgpt` build and verify distribution files. Use a fresh output
+for changed sources. See the [profile and release process](docs/chatgpt-workspace-agents.md).
+No normal test uses a model, cluster, live MCP or network after dependency setup.
+Tag-only release automation can prepare a draft; public publication is a separate
+maintainer action. Do not bypass failed validation to upload release assets.

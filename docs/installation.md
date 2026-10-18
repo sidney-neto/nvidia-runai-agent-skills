@@ -15,6 +15,7 @@ were run. P does not establish native discovery, trust approval or tool executio
 | Client / official reference | Project location | User location | Evidence |
 |---|---|---|---|
 | [Codex](https://learn.chatgpt.com/docs/build-skills) | `.agents/skills/` | `~/.agents/skills/` | D, P |
+| [ChatGPT Workspace Agents](chatgpt-workspace-agents.md) | Individual ZIP upload in eligible workspace | Workspace-managed library and agent attachments | Upload mechanism documented; local package validation tested; UI import/execution untested |
 | [Claude Code](https://code.claude.com/docs/en/skills) | `.claude/skills/` | `~/.claude/skills/` | D, P |
 | [OpenClaw](https://docs.openclaw.ai/tools/skills) | Selected workspace `skills/` | `~/.openclaw/skills/` | D, P; native installer untested |
 | [Hermes Agent](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) | `.hermes/skills/` or `.agents/skills/` | Profile `~/.hermes/skills/` | D, P; native installer untested |
