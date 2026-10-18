@@ -1,0 +1,45 @@
+{
+  "profiles": [
+    {
+      "workflow": "fraction-limit",
+      "component": "runai-cluster",
+      "deployment": "self-hosted",
+      "required_capabilities": [
+        "fraction-limit"
+      ],
+      "settings": [
+        "fractional GPU workload",
+        "observed effective memory limit"
+      ],
+      "permissions": [
+        "read target workload specification; separate authorization for any change"
+      ],
+      "workload_types": [
+        "supported-workload YAML"
+      ],
+      "vendor_support": "unverified local declaration",
+      "evidence": {
+        "documentation": "reviewed",
+        "fixture": "covered by test_compatibility.py",
+        "agent_evaluation": "not run",
+        "live_test": "not run"
+      },
+      "id": "synthetic-backport",
+      "versions": [],
+      "behavior": "RUNAI_GPU_MEMORY_LIMIT is ignored. Review container-specific nvidia.com/container.<name>.gpu-memory.limit or kai.scheduler/container.<name>.gpu-memory.portion.limit; native UI/API/CLI fields unchanged.",
+      "source": {
+        "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/migrate-gpu-fractions",
+        "document_version": "Self-Hosted v3.0",
+        "reviewed_at": "2026-10-18",
+        "revision": null
+      },
+      "scope_reason": "Baseline release identity only; no patch, prerelease or future-release extrapolation.",
+      "exact_raw": "3.0.0-vendor",
+      "provenance_type": "local",
+      "scope": "synthetic-lab",
+      "provenance": "Synthetic operator-attested annotation semantics; not vendor support",
+      "captured_at": "2026-10-18T00:00:00Z"
+    }
+  ],
+  "transitions": []
+}

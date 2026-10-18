@@ -1,0 +1,22 @@
+{
+  "deployment": "self-hosted",
+  "components": {
+    "runai-cluster": {
+      "raw_version": "3.0",
+      "origin": "synthetic fixture"
+    }
+  },
+  "capabilities": {
+    "fraction-limit": {
+      "state": "available",
+      "advertised": true,
+      "usable": true,
+      "permitted": true
+    }
+  },
+  "workload_type": "supported-workload YAML",
+  "settings": {
+    "fractional GPU workload": true,
+    "observed effective memory limit": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "current": "2.26",
+  "target": "3.0",
+  "deployment": "self-hosted",
+  "edition": "support-entitled",
+  "kubernetes": "1.35.0",
+  "fractions": true,
+  "prerequisites": {
+    "backups_verified": false,
+    "artifacts_verified": false,
+    "entitlement_verified": false,
+    "persistence_verified": false,
+    "recovery_reviewed": false,
+    "driver_r615_verified": false,
+    "cuda_13_4_verified": false,
+    "gpu_operator_26_7_1_verified": false,
+    "nri_disabled_verified": false,
+    "fraction_manifests_reviewed": false,
+    "sources_refreshed": false
+  },
+  "components": {
+    "runai-control-plane": {
+      "raw_version": "2.26",
+      "origin": "synthetic fixture"
+    },
+    "runai-cluster": {
+      "raw_version": "2.26",
+      "origin": "synthetic fixture"
+    },
+    "runai-cli": {
+      "raw_version": "2.26",
+      "origin": "synthetic fixture"
+    }
+  }
+}

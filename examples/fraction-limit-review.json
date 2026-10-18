@@ -1,0 +1,48 @@
+{
+  "kind": "review-only-container-fragment",
+  "document_version": "Self-Hosted 3.0 fraction migration",
+  "submission_path": "supported-workload YAML",
+  "before": {
+    "metadata": {
+      "annotations": {
+        "gpu-memory": "4000",
+        "gpu-fraction-container-name": "app"
+      }
+    },
+    "spec": {
+      "containers": [
+        {
+          "name": "app",
+          "env": [
+            {
+              "name": "RUNAI_GPU_MEMORY_LIMIT",
+              "value": "8000M"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "after": {
+    "metadata": {
+      "annotations": {
+        "gpu-memory": "4000",
+        "gpu-fraction-container-name": "app",
+        "nvidia.com/container.app.gpu-memory.limit": "8000M"
+      }
+    },
+    "spec": {
+      "containers": [
+        {
+          "name": "app"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Not a Kubernetes manifest; merge into a separately verified full supported workload schema.",
+    "Native UI/API/CLI fields are outside this annotation migration.",
+    "Preserve unrelated environment entries, namespaces and dependencies.",
+    "No live validation performed."
+  ]
+}

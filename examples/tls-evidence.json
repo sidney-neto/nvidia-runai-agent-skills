@@ -1,0 +1,5 @@
+{
+  "administrator_tls_verified": true,
+  "application_tls_verified": false,
+  "application_error": "x509: certificate signed by unknown authority"
+}

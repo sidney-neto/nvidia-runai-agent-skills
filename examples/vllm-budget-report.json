@@ -1,0 +1,7 @@
+{
+  "full_length_sequence_capacity": 2,
+  "next_action": "Verify installed-version flags, model KV geometry/TP partitioning, weights, activation/workspace headroom, and measured free KV budget. Benchmark only within authorized resource scope.",
+  "required_kv_bytes_per_gpu": 68719476736,
+  "state": "inconsistent_full_concurrency_budget",
+  "uncertainty": "Worst-case full-length resident sequences. Prefix reuse, chunking and scheduler preemption can change residency; this does not prove launch failure."
+}

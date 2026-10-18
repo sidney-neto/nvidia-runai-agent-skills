@@ -1,0 +1,353 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cluster": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "deployment": {
+          "enum": [
+            "self-hosted",
+            "multi-tenant",
+            "unknown"
+          ]
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "cluster",
+        "context",
+        "deployment",
+        "edition"
+      ]
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "raw_version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "origin": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "node": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "version_state": {
+            "enum": [
+              "missing",
+              "release",
+              "unverified"
+            ]
+          },
+          "normalized_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "raw_version",
+          "origin"
+        ]
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "node_pool": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "gpu_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "physical_gpus": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "allocatable_gpu_equivalents": {
+            "type": "number",
+            "minimum": 0
+          },
+          "free_device_gpu_equivalents": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "kubernetes_version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "container_runtime": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "driver_version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "ready": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "control_plane": {
+            "type": "boolean"
+          },
+          "virtual": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "node_pool",
+          "gpu_type",
+          "physical_gpus",
+          "allocatable_gpu_equivalents",
+          "free_device_gpu_equivalents",
+          "kubernetes_version",
+          "container_runtime",
+          "driver_version",
+          "ready",
+          "control_plane",
+          "virtual"
+        ]
+      }
+    },
+    "quotas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "scope": {
+            "enum": [
+              "project",
+              "department"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "node_pool": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "gpu_type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "quota": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "enum": [
+                  "unlimited",
+                  null
+                ]
+              }
+            ]
+          },
+          "allocated": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "scope",
+          "id",
+          "node_pool",
+          "gpu_type",
+          "quota",
+          "allocated"
+        ]
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "pages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expected_pages": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "complete",
+        "pages",
+        "expected_pages"
+      ]
+    },
+    "pending_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gpu_equivalents": {
+          "type": "number",
+          "minimum": 0
+        },
+        "node_pool": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "gpu_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "gpu_equivalents",
+        "node_pool",
+        "gpu_type"
+      ]
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "component": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "state": {
+            "enum": [
+              "healthy",
+              "degraded",
+              "unknown",
+              "permission-denied",
+              "unavailable"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "component",
+          "state",
+          "reason"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "captured_at",
+    "target",
+    "components",
+    "nodes",
+    "quotas",
+    "pagination"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/runai-local-snapshot-v1",
+  "title": "Community local snapshot v1; NOT a Run:ai API schema"
+}

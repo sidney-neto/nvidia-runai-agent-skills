@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-18T12:00:00Z",
+  "target": {
+    "cluster": "synthetic-lab",
+    "context": "example-context",
+    "deployment": "self-hosted",
+    "edition": "unknown"
+  },
+  "components": [
+    {
+      "name": "runai-control-plane",
+      "raw_version": "3.0",
+      "origin": "synthetic fixture"
+    },
+    {
+      "name": "runai-cluster",
+      "raw_version": "2.26",
+      "origin": "synthetic fixture"
+    },
+    {
+      "name": "runai-cli",
+      "raw_version": null,
+      "origin": "not collected"
+    },
+    {
+      "name": "runai-mcp",
+      "raw_version": null,
+      "origin": "not installed"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "cp-1",
+      "node_pool": null,
+      "gpu_type": null,
+      "physical_gpus": 0,
+      "allocatable_gpu_equivalents": 0,
+      "free_device_gpu_equivalents": [],
+      "kubernetes_version": "v1.35.0",
+      "container_runtime": "containerd://2.1.0",
+      "driver_version": null,
+      "ready": true,
+      "control_plane": true,
+      "virtual": true
+    },
+    {
+      "name": "gpu-a",
+      "node_pool": "pool-a",
+      "gpu_type": "synthetic-80GiB",
+      "physical_gpus": 4,
+      "allocatable_gpu_equivalents": 4,
+      "free_device_gpu_equivalents": [
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "kubernetes_version": "v1.35.0",
+      "container_runtime": "containerd://2.1.0",
+      "driver_version": "615.00",
+      "ready": true,
+      "control_plane": false,
+      "virtual": false
+    },
+    {
+      "name": "gpu-b",
+      "node_pool": "pool-a",
+      "gpu_type": "synthetic-80GiB",
+      "physical_gpus": 4,
+      "allocatable_gpu_equivalents": 4,
+      "free_device_gpu_equivalents": [
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "kubernetes_version": "v1.35.0",
+      "container_runtime": "containerd://2.1.0",
+      "driver_version": "615.00",
+      "ready": true,
+      "control_plane": false,
+      "virtual": false
+    }
+  ],
+  "quotas": [
+    {
+      "scope": "project",
+      "id": "research",
+      "parent_id": "engineering",
+      "node_pool": "pool-a",
+      "gpu_type": "synthetic-80GiB",
+      "quota": 6,
+      "allocated": 7
+    },
+    {
+      "scope": "project",
+      "id": "serving",
+      "parent_id": "engineering",
+      "node_pool": "pool-a",
+      "gpu_type": "synthetic-80GiB",
+      "quota": 6,
+      "allocated": 0
+    },
+    {
+      "scope": "department",
+      "id": "engineering",
+      "node_pool": "pool-a",
+      "gpu_type": "synthetic-80GiB",
+      "quota": 8,
+      "allocated": 8
+    }
+  ],
+  "pagination": {
+    "complete": true,
+    "pages": 1,
+    "expected_pages": 1
+  },
+  "pending_request": {
+    "gpu_equivalents": 1,
+    "node_pool": "pool-a",
+    "gpu_type": "synthetic-80GiB"
+  },
+  "conditions": [
+    {
+      "component": "runai-cluster",
+      "state": "unknown",
+      "reason": "Synthetic mixed-version evidence; compatibility not established"
+    }
+  ]
+}

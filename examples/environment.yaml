@@ -1,0 +1,31 @@
+# Our environment template, NOT Kubernetes or Run:ai API YAML. Synthetic only.
+schema_version: 1
+name: example-lab
+deployment: self-hosted
+edition: unknown
+versions:
+  runai_control_plane: null
+  runai_cluster: null
+  scheduler: null
+  cli: null
+  mcp_server: null
+  mcp_protocol: null
+  kubernetes: null
+  containerd: null
+  gpu_operator: null
+  driver: null
+  image_cuda_runtime: null
+  vllm: null
+  nim: null
+  nim_operator: null
+nodes:
+  - {name: cp-1, role: control-plane, virtual: true, gpus: 0}
+  - {name: gpu-a, role: worker, virtual: false, gpus: 4}
+  - {name: gpu-b, role: worker, virtual: false, gpus: 4}
+ingress: {implementation: HAProxy, version: null, hostname: inference.example.com}
+storage: {purpose: persistent-model-cache-and-checkpoints, provisioner: null, access_mode: null, retention: must-be-verified}
+features: {fractional_inference: false, mig: false, time_slicing: false}
+limitations:
+  - Single virtual control plane is not high availability.
+  - Eight GPUs is an example, not required topology or vendor support.
+  - Versions and features require independent evidence before operational use.

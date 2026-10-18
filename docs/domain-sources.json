@@ -1,0 +1,630 @@
+{
+  "reviewed_at": "2026-10-18",
+  "scope": "Primary domain references for packaged operational skills; documentation review only. No cluster or credential access.",
+  "sources": [
+    {
+      "id": "access-rules",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/access-rules.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/access-rules.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "745074578d9b7619bf304a4cbea61e8e94947818f8aa0fb87b39bacd8ed43d91",
+      "status": 200,
+      "skills": [
+        "runai-projects-departments",
+        "runai-rbac-access"
+      ]
+    },
+    {
+      "id": "architecture",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/getting-started/architecture.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/getting-started/architecture.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "b857758cac2a901e006f28996b675656181f7eff0a243b09f3816f307c2aae96",
+      "status": 200,
+      "skills": [
+        "runai-context-discovery",
+        "runai-cluster-health"
+      ]
+    },
+    {
+      "id": "back-up-before-upgrading",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/back-up-before-upgrading.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/back-up-before-upgrading.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "7fd8932e36dd51567c15d325139d443cf00924673accc3a76d57ad463692b468",
+      "status": 200,
+      "skills": [
+        "runai-upgrade-readiness",
+        "runai-backup-recovery"
+      ]
+    },
+    {
+      "id": "backup-and-restore",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/maintenance/backup-and-restore.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/maintenance/backup-and-restore.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "c979afec7c4c7e1c8aacf7e0c21e8ccf8d4d6c713d8e6f32377d8035894d04af",
+      "status": 200,
+      "skills": [
+        "runai-backup-recovery"
+      ]
+    },
+    {
+      "id": "compute-modes",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/resource-optimization/gpu-fractions/compute-modes.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/resource-optimization/gpu-fractions/compute-modes.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "20f7392b683cce9a2b980ad7b5490908ebf2746365a7a71c6186a160cf7e7ed5",
+      "status": 200,
+      "skills": [
+        "runai-gpu-sharing",
+        "runai-observability"
+      ]
+    },
+    {
+      "id": "concepts-and-principles",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/scheduling/concepts-and-principles.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/scheduling/concepts-and-principles.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "7a008ff305fc74b836ac3c4c5c8bd15f1760dca9e43bc7b9cfbcbb28ccc9cd09",
+      "status": 200,
+      "skills": [
+        "runai-quota-capacity-planning",
+        "runai-scheduling-diagnostics",
+        "runai-workload-lifecycle"
+      ]
+    },
+    {
+      "id": "connect-your-ai-tool",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/agents/mcp-server/connect-your-ai-tool.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/agents/mcp-server/connect-your-ai-tool.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "5597ba23f9d9d6e4b17f76e392447b711f47c32104b000c2b97535dbd99d3852",
+      "status": 200,
+      "skills": [
+        "runai-mcp-integration"
+      ]
+    },
+    {
+      "id": "departments",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/manage-ai-initiatives/organization/departments.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/manage-ai-initiatives/organization/departments.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "e89a1e5f8f6f2670fd1ffe59a047036312d9bd957da6f3592d9fb0bdf6b90d00",
+      "status": 200,
+      "skills": [
+        "runai-quota-capacity-planning",
+        "runai-projects-departments"
+      ]
+    },
+    {
+      "id": "deploy-the-mcp-server",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/agents/mcp-server/deploy-the-mcp-server.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/agents/mcp-server/deploy-the-mcp-server.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "34ae5b8fcf475f82d98325a41fcec23c68428143369a217af0889416eb9c6c62",
+      "status": 200,
+      "skills": [
+        "runai-mcp-integration"
+      ]
+    },
+    {
+      "id": "distributed-training-models",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/workloads-in-nvidia-run-ai/using-training/distributed-training-models.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/workloads-in-nvidia-run-ai/using-training/distributed-training-models.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "a9293751d0b90278dbc6efc0cef7f4bd8990146e23cbe9d5efb8b688299edf13",
+      "status": 200,
+      "skills": [
+        "runai-distributed-workloads"
+      ]
+    },
+    {
+      "id": "gpu-operator",
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/overview.html",
+      "resolved_url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/overview.html",
+      "doc_version": "25.3.4",
+      "reviewed_at": "2026-10-18",
+      "sha256": "bcb23125f29b90f8495c43244436edd78de9e56fb920e93902fcbb5502ad602b",
+      "status": 200,
+      "skills": [
+        "nvidia-gpu-operator"
+      ]
+    },
+    {
+      "id": "gpu-timeslicing",
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/gpu-sharing.html",
+      "resolved_url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/gpu-sharing.html",
+      "doc_version": "25.3.4",
+      "reviewed_at": "2026-10-18",
+      "sha256": "b3133ac1bd947638c12bafec9ea4ecd808428508466932ec02bf3ad1ac734c6c",
+      "status": 200,
+      "skills": [
+        "runai-gpu-sharing",
+        "nvidia-gpu-operator"
+      ]
+    },
+    {
+      "id": "how-the-scheduler-works",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/scheduling/how-the-scheduler-works.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/scheduling/how-the-scheduler-works.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "6b0b9c000814bbb04792f2b0e41ee05c07d151d7b0eb9647d09a3558c5a4bfaa",
+      "status": 200,
+      "skills": [
+        "runai-scheduling-diagnostics",
+        "runai-distributed-workloads"
+      ]
+    },
+    {
+      "id": "installation-cluster-authentication",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/config/cluster-authentication.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/config/cluster-authentication.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "66fb8e74f56839c87cc311e117e349d61d4d0071913090fe94d1348e40b94d7e",
+      "status": 200,
+      "skills": [
+        "runai-tls-oidc"
+      ]
+    },
+    {
+      "id": "k8s-etcd",
+      "url": "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/",
+      "resolved_url": "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/",
+      "doc_version": "unversioned",
+      "reviewed_at": "2026-10-18",
+      "sha256": "367d586fd7c33a862a034af849f7e1ba6d8ca2ac6876ecc02cccdf2115a56f91",
+      "status": 200,
+      "skills": [
+        "kubernetes-gpu-operations",
+        "runai-backup-recovery"
+      ]
+    },
+    {
+      "id": "k8s-net",
+      "url": "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+      "resolved_url": "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+      "doc_version": "unversioned",
+      "reviewed_at": "2026-10-18",
+      "sha256": "61915b08d75c9b49dd3ef08c76e522cb8fb37636b6b95b005002ad437bd18147",
+      "status": 200,
+      "skills": [
+        "runai-networking"
+      ]
+    },
+    {
+      "id": "k8s-pv",
+      "url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+      "resolved_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+      "doc_version": "unversioned",
+      "reviewed_at": "2026-10-18",
+      "sha256": "b38e8114f490c82d5a3ced1aec13d0c46176d6ae8698bbbebaa501e29e79669b",
+      "status": 200,
+      "skills": [
+        "runai-storage",
+        "runai-backup-recovery"
+      ]
+    },
+    {
+      "id": "kubectl-auth",
+      "url": "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_auth/kubectl_auth_can-i/",
+      "resolved_url": "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_auth/kubectl_auth_can-i/",
+      "doc_version": "unversioned",
+      "reviewed_at": "2026-10-18",
+      "sha256": "ee231160421aeaf37d3d577d75055475894eb693c2de3f1eccd8d329fe760c65",
+      "status": 200,
+      "skills": [
+        "runai-rbac-access"
+      ]
+    },
+    {
+      "id": "kubectl-get",
+      "url": "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/",
+      "resolved_url": "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/",
+      "doc_version": "unversioned",
+      "reviewed_at": "2026-10-18",
+      "sha256": "4c9ca9706157c96d5dfc1fb9f3500eaf06fe75370a69ef03c5ba278f08894dfd",
+      "status": 200,
+      "skills": [
+        "runai-context-discovery",
+        "runai-cluster-health",
+        "runai-mcp-integration",
+        "runai-quota-capacity-planning",
+        "runai-projects-departments",
+        "runai-workload-policies",
+        "runai-scheduling-diagnostics",
+        "runai-workload-lifecycle",
+        "runai-gpu-sharing",
+        "runai-upgrade-readiness",
+        "kubernetes-gpu-operations",
+        "nvidia-gpu-operator",
+        "runai-storage",
+        "runai-networking",
+        "runai-observability",
+        "runai-vllm-serving",
+        "runai-nim-serving",
+        "runai-distributed-workloads",
+        "runai-backup-recovery",
+        "runai-support-report"
+      ]
+    },
+    {
+      "id": "logs-collection",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/observability/logs-collection.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/observability/logs-collection.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "3d2319cc36f2378907c63b0fb7914538b6dc4d51b8d02686eb8c30c433a223c9",
+      "status": 200,
+      "skills": [
+        "runai-support-report"
+      ]
+    },
+    {
+      "id": "memory-fractions",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/resource-optimization/gpu-fractions/memory-fractions.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/runai-scheduler/resource-optimization/gpu-fractions/memory-fractions.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "0feecb3defce93b548ec0cc8fdd65dcef18f9376667546569a4098d040d0f2df",
+      "status": 200,
+      "skills": [
+        "runai-gpu-sharing",
+        "runai-vllm-serving"
+      ]
+    },
+    {
+      "id": "metrics",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/monitor-performance/metrics.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/monitor-performance/metrics.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "93ab9bd81f25afa20c0c73946a1edeadb2a723839ddab0be93455dd017195d21",
+      "status": 200,
+      "skills": [
+        "runai-observability"
+      ]
+    },
+    {
+      "id": "migrate-gpu-fractions",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/migrate-gpu-fractions.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/migrate-gpu-fractions.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "153d6254a2e86432b9d41ad7b5a324c31a2dde87008aa7f4deda4784a3ca3444",
+      "status": 200,
+      "skills": [
+        "runai-gpu-sharing",
+        "runai-upgrade-readiness",
+        "nvidia-gpu-operator"
+      ]
+    },
+    {
+      "id": "native-workload-policies",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/policies/native-workload-policies.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/policies/native-workload-policies.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "b0237d6eec83d0b2156628c2a1d61a8210441ddb3f065836c100f67f282cd1f4",
+      "status": 200,
+      "skills": [
+        "runai-workload-policies"
+      ]
+    },
+    {
+      "id": "networking-setup",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/system-requirements/networking-setup.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/system-requirements/networking-setup.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "07c43fd9903e694565a935b1744aebe28c17f885e80f841c0f3d392afd192c08",
+      "status": 200,
+      "skills": [
+        "runai-tls-oidc",
+        "runai-networking"
+      ]
+    },
+    {
+      "id": "nim-inference",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/workloads-in-nvidia-run-ai/using-inference/nim-inference.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/workloads-in-nvidia-run-ai/using-inference/nim-inference.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "adf2e57c255c5adfeb67592ecf9cf5f57ca334c0978636ee5d74cdfb42cca9af",
+      "status": 200,
+      "skills": [
+        "runai-nim-serving"
+      ]
+    },
+    {
+      "id": "nim-profile",
+      "url": "https://docs.nvidia.com/nim/large-language-models/1.10.0/profiles.html",
+      "resolved_url": "https://docs.nvidia.com/nim/large-language-models/1.10.0/profiles.html",
+      "doc_version": "1.10.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "37f81a204f0ffd170cfe18ae2ad82ae0ce75896c116318fe7c333da27c758205",
+      "status": 200,
+      "skills": [
+        "runai-nim-serving"
+      ]
+    },
+    {
+      "id": "nim-support",
+      "url": "https://docs.nvidia.com/nim/large-language-models/1.10.0/support-matrix.html",
+      "resolved_url": "https://docs.nvidia.com/nim/large-language-models/1.10.0/support-matrix.html",
+      "doc_version": "1.10.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "a1320b56045f8404658ad43a7587ea1759a8cfc16eb93c46adef4aa1bacf57de",
+      "status": 200,
+      "skills": [
+        "runai-nim-serving"
+      ]
+    },
+    {
+      "id": "node-maintenance",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/maintenance/node-maintenance.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/maintenance/node-maintenance.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "1ab80f1f2cb39f5afa2f4574ee1505f69835c460d81a91763a6ec3fba0655950",
+      "status": 200,
+      "skills": [
+        "kubernetes-gpu-operations"
+      ]
+    },
+    {
+      "id": "openidconnect",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/sso/openidconnect.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/sso/openidconnect.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "f1fa1ac1534561dc6079cb64427587d5da66d018f0dfaf98ac87c72b6bd4b149",
+      "status": 200,
+      "skills": [
+        "runai-tls-oidc"
+      ]
+    },
+    {
+      "id": "openssl-x509",
+      "url": "https://docs.openssl.org/3.0/man1/openssl-x509/",
+      "resolved_url": "https://docs.openssl.org/3.0/man1/openssl-x509/",
+      "doc_version": "3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "e3b8e9a053686766c98b483faf0523f8b1a3b8c55f0ab67f3da68508f220005e",
+      "status": 200,
+      "skills": [
+        "runai-tls-oidc"
+      ]
+    },
+    {
+      "id": "plan-the-upgrade",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/plan-the-upgrade.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/plan-the-upgrade.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "dc9d7fe529f01935ac85a629813969d633dd44bfc31d4c0fb24eb3e32e6c5f31",
+      "status": 200,
+      "skills": [
+        "runai-upgrade-readiness",
+        "nvidia-gpu-operator"
+      ]
+    },
+    {
+      "id": "platform-cluster-authentication",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/cluster-authentication.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/cluster-authentication.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "bc82d3d5d3bc2cd470e7f3dc98453e6fff345aa1ef53ef2f1e3e20d207ab3602",
+      "status": 200,
+      "skills": [
+        "runai-rbac-access",
+        "runai-tls-oidc"
+      ]
+    },
+    {
+      "id": "projects",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/manage-ai-initiatives/organization/projects.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/manage-ai-initiatives/organization/projects.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "08618e745f7581c0228c10d3c8e0fa7c8af9a3dab02e0ca6ef1fabbda281e379",
+      "status": 200,
+      "skills": [
+        "runai-quota-capacity-planning",
+        "runai-projects-departments"
+      ]
+    },
+    {
+      "id": "roles",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/roles.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/roles.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "01174718f9d5d11fd189fd5426cb7ce7552f4e2edf88318db602413be0323eb8",
+      "status": 200,
+      "skills": [
+        "runai-rbac-access"
+      ]
+    },
+    {
+      "id": "storage",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/config/storage.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/config/storage.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "aeb1ed383dbe1ec116fcf43810a19095dfae2ac01fa28a91f6871a813fb5d67d",
+      "status": 200,
+      "skills": [
+        "runai-storage"
+      ]
+    },
+    {
+      "id": "support-matrix",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/support-matrix.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/support-matrix.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "2d43ee28b5b9feef35d57db933bb786782de3e5986ebf485ffb6611fcf1968e5",
+      "status": 200,
+      "skills": [
+        "runai-upgrade-readiness",
+        "nvidia-gpu-operator",
+        "runai-gpu-sharing"
+      ]
+    },
+    {
+      "id": "supported-workload-type-policies",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/policies/supported-workload-type-policies.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/policies/supported-workload-type-policies.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "01b98c72e88c5e76940bf66b9c65d03b69d101c0cd24075fd247a75dc2791fd5",
+      "status": 200,
+      "skills": [
+        "runai-workload-policies"
+      ]
+    },
+    {
+      "id": "system-monitoring",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/observability/system-monitoring.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/operate/observability/system-monitoring.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "659b794f36f3f12b03efbfe842db86b309d446c71a10001f432c771431e0a1f0",
+      "status": 200,
+      "skills": [
+        "runai-cluster-health",
+        "runai-observability",
+        "runai-support-report"
+      ]
+    },
+    {
+      "id": "tools-reference",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/agents/mcp-server/tools-reference.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/agents/mcp-server/tools-reference.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "c4f7e964b94bcbbc0c84c986cf77597d14010bffa70b88431669044fd70c1d21",
+      "status": 200,
+      "skills": [
+        "runai-context-discovery",
+        "runai-mcp-integration",
+        "runai-quota-capacity-planning",
+        "runai-projects-departments",
+        "runai-workload-policies",
+        "runai-workload-lifecycle"
+      ]
+    },
+    {
+      "id": "upstream-failure",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/8190247dc97cd67538e8d4ab383d13b22da5037b/skills/runai-diagnose-failed-workload/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/8190247dc97cd67538e8d4ab383d13b22da5037b/skills/runai-diagnose-failed-workload/SKILL.md",
+      "doc_version": "upstream skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "8190247dc97cd67538e8d4ab383d13b22da5037b",
+      "sha256": "9f603eff6115da9c77f489fd815cf7c73d2b27e6c5716c6f0ca733eac54fef40",
+      "status": 200,
+      "license": "Apache-2.0 AND CC-BY-4.0",
+      "use": "Optional compatible specialist; linked and attributed, not copied or installed.",
+      "skills": [
+        "runai-workload-lifecycle"
+      ]
+    },
+    {
+      "id": "upstream-quota",
+      "url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/8190247dc97cd67538e8d4ab383d13b22da5037b/skills/runai-audit-assigned-quota/SKILL.md",
+      "resolved_url": "https://raw.githubusercontent.com/dsx-ai-factory/run-ai/8190247dc97cd67538e8d4ab383d13b22da5037b/skills/runai-audit-assigned-quota/SKILL.md",
+      "doc_version": "upstream skill snapshot",
+      "reviewed_at": "2026-10-18",
+      "revision": "8190247dc97cd67538e8d4ab383d13b22da5037b",
+      "sha256": "3fbef93f1869c7bfffae3cce8dd7f75e01e8a2c40330645e62a53d5e58364e93",
+      "status": 200,
+      "license": "Apache-2.0 AND CC-BY-4.0",
+      "use": "Optional compatible specialist; linked and attributed, not copied or installed.",
+      "skills": [
+        "runai-quota-capacity-planning"
+      ]
+    },
+    {
+      "id": "vllm-engine",
+      "url": "https://docs.vllm.ai/en/v0.10.2/configuration/engine_args.html",
+      "resolved_url": "https://docs.vllm.ai/en/v0.10.2/configuration/engine_args.html",
+      "doc_version": "0.10.2",
+      "reviewed_at": "2026-10-18",
+      "sha256": "a811ae62f8989c24854b7cd7e5738269b73c72b46432fdbf4462f0b758feb764",
+      "status": 200,
+      "skills": [
+        "runai-vllm-serving"
+      ]
+    },
+    {
+      "id": "gpu-cdi",
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/cdi.html",
+      "resolved_url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/cdi.html",
+      "doc_version": "25.3.4",
+      "reviewed_at": "2026-10-18",
+      "sha256": "6246895f221e3f9b5ff043f7b7de159caa3225a27d3f921d7bb688b5192056a5",
+      "status": 200,
+      "skills": [
+        "nvidia-gpu-operator"
+      ]
+    },
+    {
+      "id": "gpu-dra",
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/dra-intro-install.html",
+      "resolved_url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/25.3.4/dra-intro-install.html",
+      "doc_version": "25.3.4",
+      "reviewed_at": "2026-10-18",
+      "sha256": "2e2fe8f127ad9d0a65287d340cd737d618cded5d041075d32405b497a9e053a7",
+      "status": 200,
+      "skills": [
+        "nvidia-gpu-operator"
+      ]
+    },
+    {
+      "id": "service-accounts",
+      "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/service-accounts.md",
+      "resolved_url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/platform-management/authentication/service-accounts.md",
+      "doc_version": "v3.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "edfada1063ac38791b640aaf9b1dc3701b06d9c3ea44376d7e22c00aed66a71b",
+      "status": 200,
+      "skills": [
+        "runai-mcp-integration"
+      ]
+    },
+    {
+      "id": "nim-start",
+      "url": "https://docs.nvidia.com/nim/large-language-models/1.10.0/getting-started.html",
+      "resolved_url": "https://docs.nvidia.com/nim/large-language-models/1.10.0/getting-started.html",
+      "doc_version": "1.10.0",
+      "reviewed_at": "2026-10-18",
+      "sha256": "47124269af0667a7cc5079518e96e68bf4a2c3e1d4f6d1967e49556595e675a9",
+      "status": 200,
+      "skills": [
+        "runai-nim-serving"
+      ]
+    }
+  ],
+  "unavailable_sources": [
+    {
+      "id": "vllm-dist",
+      "url": "https://docs.vllm.ai/en/v0.10.2/serving/distributed_serving.html",
+      "status": "unavailable",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

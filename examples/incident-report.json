@@ -1,0 +1,24 @@
+{
+  "attempted_actions": [
+    "Offline analysis only; no cluster mutation."
+  ],
+  "captured_at": "2026-10-18T12:00:00Z",
+  "evidence": [
+    "eight-gpu.snapshot.json at captured_at; no live inspection"
+  ],
+  "findings": [
+    "Pending workload has sufficient aggregate capacity but no single device fit."
+  ],
+  "hypotheses": [
+    "Per-device fragmentation; other scheduling constraints remain unverified."
+  ],
+  "remaining_questions": [
+    "What are the target pool eligibility and gang placement constraints?"
+  ],
+  "review_required": "Inspect for organization-specific identifiers and unrecognized secrets before sharing; heuristic redaction is not complete.",
+  "scope": "synthetic-lab / serving project; read-only offline review",
+  "versions": {
+    "origin": "operator-provided synthetic snapshot",
+    "runai_cluster": "unknown"
+  }
+}

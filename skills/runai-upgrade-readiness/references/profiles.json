@@ -1,0 +1,151 @@
+{
+  "profiles": [
+    {
+      "workflow": "fraction-limit",
+      "component": "runai-cluster",
+      "deployment": "self-hosted",
+      "required_capabilities": [
+        "fraction-limit"
+      ],
+      "settings": [
+        "fractional GPU workload",
+        "observed effective memory limit"
+      ],
+      "permissions": [
+        "read target workload specification; separate authorization for any change"
+      ],
+      "workload_types": [
+        "supported-workload YAML"
+      ],
+      "vendor_support": "conditional on edition, lifecycle and full component matrix; not established by fixture",
+      "evidence": {
+        "documentation": "reviewed",
+        "fixture": "covered by test_compatibility.py",
+        "agent_evaluation": "not run",
+        "live_test": "not run"
+      },
+      "id": "fractions-226",
+      "versions": [
+        "2.26.0"
+      ],
+      "behavior": "RUNAI_GPU_MEMORY_LIMIT sets the legacy container memory burst ceiling. Does not promise compute throughput.",
+      "source": {
+        "url": "https://run-ai-docs.nvidia.com/self-hosted/platform-management/runai-scheduler/resource-optimization/dynamic-fractions",
+        "document_version": "Self-Hosted 2.26",
+        "reviewed_at": "2026-10-18",
+        "revision": null
+      },
+      "scope_reason": "Baseline release identity only; no patch, prerelease or future-release extrapolation."
+    },
+    {
+      "workflow": "fraction-limit",
+      "component": "runai-cluster",
+      "deployment": "self-hosted",
+      "required_capabilities": [
+        "fraction-limit"
+      ],
+      "settings": [
+        "fractional GPU workload",
+        "observed effective memory limit"
+      ],
+      "permissions": [
+        "read target workload specification; separate authorization for any change"
+      ],
+      "workload_types": [
+        "supported-workload YAML"
+      ],
+      "vendor_support": "conditional on edition, lifecycle and full component matrix; not established by fixture",
+      "evidence": {
+        "documentation": "reviewed",
+        "fixture": "covered by test_compatibility.py",
+        "agent_evaluation": "not run",
+        "live_test": "not run"
+      },
+      "id": "fractions-300",
+      "versions": [
+        "3.0.0"
+      ],
+      "behavior": "RUNAI_GPU_MEMORY_LIMIT is ignored. Review container-specific nvidia.com/container.<name>.gpu-memory.limit or kai.scheduler/container.<name>.gpu-memory.portion.limit; native UI/API/CLI fields unchanged.",
+      "source": {
+        "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/migrate-gpu-fractions",
+        "document_version": "Self-Hosted v3.0",
+        "reviewed_at": "2026-10-18",
+        "revision": null
+      },
+      "scope_reason": "Baseline release identity only; no patch, prerelease or future-release extrapolation."
+    }
+  ],
+  "transitions": [
+    {
+      "current": "2.26.0",
+      "target": "3.0.0",
+      "deployment": "self-hosted",
+      "editions": [
+        "open-source",
+        "support-entitled"
+      ],
+      "kubernetes_minor_overlap": [
+        35,
+        36
+      ],
+      "kubernetes_major": 1,
+      "stages": [
+        "backup-and-artifact-verification",
+        "fraction-and-gpu-stack-readiness",
+        "control-plane",
+        "control-plane-verification",
+        "cluster",
+        "cluster-verification",
+        "workload-recovery-and-validation"
+      ],
+      "prerequisites": [
+        "backups_verified",
+        "artifacts_verified",
+        "persistence_verified",
+        "recovery_reviewed",
+        "sources_refreshed"
+      ],
+      "fraction_prerequisites": [
+        "driver_r615_verified",
+        "cuda_13_4_verified",
+        "gpu_operator_26_7_1_verified",
+        "nri_disabled_verified",
+        "fraction_manifests_reviewed"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/plan-the-upgrade",
+          "document_version": "Self-Hosted v3.0",
+          "reviewed_at": "2026-10-18",
+          "revision": null
+        },
+        {
+          "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/upgrade-nvidia-run-ai",
+          "document_version": "Self-Hosted v3.0",
+          "reviewed_at": "2026-10-18",
+          "revision": null
+        },
+        {
+          "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/support-matrix",
+          "document_version": "Self-Hosted v3.0",
+          "reviewed_at": "2026-10-18",
+          "revision": null
+        },
+        {
+          "url": "https://docs.nvidia.com/run-ai/self-hosted/v3.0/documentation/installation-and-configuration/upgrade/migrate-gpu-fractions",
+          "document_version": "Self-Hosted v3.0",
+          "reviewed_at": "2026-10-18",
+          "revision": null
+        }
+      ],
+      "evidence": {
+        "documentation": "reviewed",
+        "fixture": "covered by test_compatibility.py",
+        "agent_evaluation": "not run",
+        "live_test": "not run"
+      },
+      "vendor_support": "Conditional Support-Entitled agreement; open-source is not vendor support certification. Kubernetes minors here are the intersection of both documented tables; distribution and patches need independent verification.",
+      "scope": "Component-staged 2.26 baseline to 3.0 baseline only, not a historical release-hop graph."
+    }
+  ]
+}
